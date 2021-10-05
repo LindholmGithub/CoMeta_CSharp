@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Security.Cryptography;
 
 namespace ConsoleApp1
@@ -33,8 +34,8 @@ namespace ConsoleApp1
         {
             string clearText;
             //Decryption
-            ICryptoTransform decrypter = aes.CreateDecryptor();
-            using (MemoryStream msDecrypt = new MemoryStream(encrypted)) //Remember that encrypted is a byte[]
+            ICryptoTransform decrypter = _aes.CreateDecryptor();
+            using (MemoryStream msDecrypt = new MemoryStream(encryptedMessage)) //Remember that encrypted is a byte[]
             {
                 using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decrypter, CryptoStreamMode.Read))
                 {
