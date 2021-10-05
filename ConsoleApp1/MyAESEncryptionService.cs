@@ -45,7 +45,17 @@ namespace ConsoleApp1
                     }
                 }
             }
-            return "";
+            return clearText;
+        }
+
+        public string getKey()
+        {
+            return Convert.ToBase64String(_key);
+        }
+
+        public string getIv()
+        {
+            return Convert.ToBase64String(_iv);
         }
     }
 }
