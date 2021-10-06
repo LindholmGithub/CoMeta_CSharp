@@ -13,10 +13,23 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
+            string aKey = "glZXcwfK2eYmfb8drr1ObHn5hXUvl2kXBrOmbvxf8Ow=";
+            string aIv = "tx8FgtXX8jCYKQDxBICUlw==";
+            MyAESEncryptionService encryptionService = new MyAESEncryptionService();
+            string Key = encryptionService.getKey();
+            string Iv = encryptionService.getIv();
+            Console.WriteLine("Key : " + Key);
+            Console.WriteLine("IV : " + Iv);
+            
+            string aSecret = "/5tz6nmOHz+ilUEG/dJ2x1wbXalmRuPIYV9Oq+jltKw=";
+            byte[] byteSecret = Convert.FromBase64String(aSecret);
+            string message2 = encryptionService.DecryptMessage(byteSecret);
+            Console.WriteLine(message2);
+            
             //HashPasswordExample("P@$$WORD");
             //funWithTokens();
             //funWithEncryption("Hi Bob, it's Alice (h)");
-            FunWithAsyncEncryption();
+            //FunWithAsyncEncryption();
         }
 
         private static void funWithTokens()

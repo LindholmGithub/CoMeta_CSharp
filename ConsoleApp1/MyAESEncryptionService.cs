@@ -9,7 +9,13 @@ namespace ConsoleApp1
         private byte[] _key;
         private byte[] _iv;
         private AesCryptoServiceProvider _aes;
-
+        
+        public MyAESEncryptionService()
+        {
+            _aes = new AesCryptoServiceProvider();
+            _key = _aes.Key;
+            _iv = _aes.IV;
+        }
         public MyAESEncryptionService(string key, string iv)
         {
             _key = Convert.FromBase64String(key);
